@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Rumah Sakit Terpercaya</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+<div class="container">
+    <div class="card">
+<form action="RUMAH SAKIT_TERPERCAYA.php" method="POST">
+  <strong>RUMAH SAKIT TEPERCAYA</strong>
+  <hr>
+  NO REKAN MEDIS : <input type="text" name="kode"><br><br>
+  NAMA PASIEN : <input type="text" name="nm"><br><br>
+  TEMPAT/TANGGAL LAHIR : <input type="text" name="hrg"><br><br>
+  UMUR : <input type="text" name="jml"><br><br>
+  JENIS KELAMIN :<input type="radio" name="jk" value="Laki-laki"> Laki-laki
+                 <input type="radio" name="jk" value="Perempuan"> Perempuan<br><br>
+  JENIS LAYANAN :<select name="layanan">
+                 <option value="umum">Umum</option>
+                 <option value="poli tht">Poli THT</option>
+                 <option value="poli bedah">Poli Bedah</option>
+                 <option value="poli anak">Poli Anak</option>
+                 </select>
+                 <br><br>
+  <input type="submit" value="DAFTAR">
+  <input type="reset" value="BATAL">
+</form>
