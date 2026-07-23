@@ -1,70 +1,101 @@
-// Data berita yang disalin dari teks di dalam gambar
-const newsData = [
-    {
-        title: "Introduction to Artificial Intelligence",
-        desc: "Learn the basics of Artificial Intelligence and its applications in various industries."
-    },
-    {
-        title: "Web Development with React",
-        desc: "Build modern web applications using React.js and explore its powerful features."
-    },
-    {
-        title: "Data Science Fundamentals",
-        desc: "Dive into the world of Data Science and discover how to analyze and interpret data."
-    },
-    {
-        title: "Machine Learning Algorithms",
-        desc: "Explore various Machine Learning algorithms and understand their workings."
-    },
-    {
-        title: "Introduction to Blockchain",
-        desc: "Learn about Blockchain technology, its use-cases, and how it ensures secure transactions."
-    },
-    {
-        title: "iOS App Development",
-        desc: "Get started with iOS app development using Swift and create feature-rich applications."
-    },
-    {
-        title: "Python for Data Analysis",
-        desc: "Utilize Python libraries like pandas and NumPy for data manipulation and analysis."
-    },
-    {
-        title: "Cybersecurity Best Practices",
-        desc: "Learn essential cybersecurity practices to safeguard your digital assets."
-    },
-    {
-        title: "Cloud Computing Essentials",
-        desc: "Understand the fundamentals of Cloud Computing and its benefits for businesses."
-    },
-    {
-        title: "Introduction to UX Design",
-        desc: "Discover the principles of User Experience (UX) design and create intuitive user interfaces."
-    }
-];
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMK Negeri Nusantara</title>
+  <meta name="description" content="Website resmi SMK Negeri Nusantara — profil sekolah, jurusan, dan berita terbaru.">
 
-// Fungsi untuk memasukkan data berita ke dalam HTML
-const newsGrid = document.getElementById('news-grid');
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-newsData.forEach(news => {
-    // Membuat elemen pembungkus untuk setiap berita
-    const card = document.createElement('article');
-    card.classList.add('news-card');
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    // Menambahkan HTML ke dalam elemen tersebut
-    card.innerHTML = `
-        <h3>${news.title}</h3>
-        <p>${news.desc}</p>
-    `;
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <a href="#beranda" class="brand">SMK Negeri Nusantara</a>
 
-    // Memasukkan kartu ke dalam grid
-    newsGrid.appendChild(card);
-});
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
 
-// Fungsi untuk Hamburger Menu (Tampilan Mobile)
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="#beranda" class="nav-link active" data-section="beranda">Beranda</a></li>
+          <li><a href="#profil" class="nav-link" data-section="profil">Profil</a></li>
+          <li><a href="#jurusan" class="nav-link" data-section="jurusan">Jurusan</a></li>
+          <li><a href="#berita" class="nav-link" data-section="berita">Berita</a></li>
+          <li><a href="#kontak" class="nav-link" data-section="kontak">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-hamburger.addEventListener('click', () => {
-    // Menambah atau menghapus class 'active' untuk memunculkan/menyembunyikan menu
-    navLinks.classList.toggle('active');
-});
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-title-wrap">
+        <h1 class="hero-title">Selamat Datang di SMK Negeri Nusantara</h1>
+      </div>
+    </section>
+
+    <section class="profil" id="profil">
+      <p class="section-eyebrow">Tentang Kami</p>
+      <h2 class="section-heading section-heading--center">Mencetak Lulusan Siap Kerja &amp; Siap Berkarya</h2>
+      <p class="profil-text">
+        SMK Negeri Nusantara adalah sekolah menengah kejuruan yang berfokus mencetak lulusan siap kerja
+        di bidang teknologi. Kami memadukan kurikulum akademik dengan praktik industri agar siswa siap
+        menghadapi dunia kerja maupun melanjutkan pendidikan ke jenjang yang lebih tinggi.
+      </p>
+    </section>
+
+    <section class="jurusan" id="jurusan">
+      <h2 class="section-heading">Program Keahlian</h2>
+      <div class="jurusan-grid">
+        <article class="jurusan-card">
+          <span class="jurusan-icon" aria-hidden="true">💻</span>
+          <h3 class="jurusan-title">Rekayasa Perangkat Lunak</h3>
+          <p class="jurusan-desc">Merancang dan membangun aplikasi web maupun mobile dari nol.</p>
+        </article>
+        <article class="jurusan-card">
+          <span class="jurusan-icon" aria-hidden="true">🌐</span>
+          <h3 class="jurusan-title">Teknik Komputer &amp; Jaringan</h3>
+          <p class="jurusan-desc">Instalasi, konfigurasi, dan keamanan jaringan komputer.</p>
+        </article>
+        <article class="jurusan-card">
+          <span class="jurusan-icon" aria-hidden="true">🎬</span>
+          <h3 class="jurusan-title">Multimedia</h3>
+          <p class="jurusan-desc">Mengasah kreativitas di bidang desain grafis, animasi, dan video.</p>
+        </article>
+        <article class="jurusan-card">
+          <span class="jurusan-icon" aria-hidden="true">🎨</span>
+          <h3 class="jurusan-title">Desain Komunikasi Visual</h3>
+          <p class="jurusan-desc">Mempelajari branding, UI/UX, dan komunikasi visual modern.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="news" id="berita">
+      <div class="news-container">
+        <h2 class="news-heading">Berita Terbaru</h2>
+        <div class="news-grid" id="newsGrid">
+          <!-- Kartu berita dirender otomatis oleh script.js -->
+        </div>
+        <noscript><p class="news-noscript">Aktifkan JavaScript untuk menampilkan daftar berita terbaru.</p></noscript>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="kontak">
+    <div class="skyline" id="skyline" aria-hidden="true"></div>
+    <div class="footer-bottom">
+      <p class="footer-contact">Jl. Pendidikan Raya No. 1, Jakarta &nbsp;•&nbsp; [email protected] &nbsp;•&nbsp; (021) 123-4567</p>
+      <p class="footer-copy">&copy; <span id="year"></span> SMK Negeri Nusantara. Semua hak dilindungi.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
