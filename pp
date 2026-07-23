@@ -1,101 +1,427 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SMK Negeri Nusantara</title>
-  <meta name="description" content="Website resmi SMK Negeri Nusantara — profil sekolah, jurusan, dan berita terbaru.">
+/* ==========================================================
+   SMK Negeri Nusantara — Stylesheet
+   ========================================================== */
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+:root {
+  --primary: #4c5fbf;
+  --primary-dark: #3a4a9c;
+  --primary-darker: #262f66;
+  --ink: #22252e;
+  --ink-soft: #5c6172;
+  --bg: #ffffff;
+  --bg-alt: #f6f7fb;
+  --card-bg: #f1f2f8;
+  --card-border: #e3e5f0;
+  --radius: 10px;
+  --shadow: 0 14px 30px -14px rgba(38, 45, 90, 0.28);
+  --header-h: 68px;
+  --font-display: "Poppins", system-ui, -apple-system, Segoe UI, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, Segoe UI, sans-serif;
+}
 
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+* { box-sizing: border-box; }
 
-  <header class="site-header" id="header">
-    <div class="header-inner">
-      <a href="#beranda" class="brand">SMK Negeri Nusantara</a>
+html {
+  scroll-behavior: smooth;
+}
 
-      <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mainNav">
-        <span></span><span></span><span></span>
-      </button>
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+}
 
-      <nav class="main-nav" id="mainNav">
-        <ul>
-          <li><a href="#beranda" class="nav-link active" data-section="beranda">Beranda</a></li>
-          <li><a href="#profil" class="nav-link" data-section="profil">Profil</a></li>
-          <li><a href="#jurusan" class="nav-link" data-section="jurusan">Jurusan</a></li>
-          <li><a href="#berita" class="nav-link" data-section="berita">Berita</a></li>
-          <li><a href="#kontak" class="nav-link" data-section="kontak">Kontak</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+img { max-width: 100%; display: block; }
 
-  <main>
-    <section class="hero" id="beranda">
-      <div class="hero-title-wrap">
-        <h1 class="hero-title">Selamat Datang di SMK Negeri Nusantara</h1>
-      </div>
-    </section>
+a { color: inherit; text-decoration: none; }
 
-    <section class="profil" id="profil">
-      <p class="section-eyebrow">Tentang Kami</p>
-      <h2 class="section-heading section-heading--center">Mencetak Lulusan Siap Kerja &amp; Siap Berkarya</h2>
-      <p class="profil-text">
-        SMK Negeri Nusantara adalah sekolah menengah kejuruan yang berfokus mencetak lulusan siap kerja
-        di bidang teknologi. Kami memadukan kurikulum akademik dengan praktik industri agar siswa siap
-        menghadapi dunia kerja maupun melanjutkan pendidikan ke jenjang yang lebih tinggi.
-      </p>
-    </section>
+ul { list-style: none; margin: 0; padding: 0; }
 
-    <section class="jurusan" id="jurusan">
-      <h2 class="section-heading">Program Keahlian</h2>
-      <div class="jurusan-grid">
-        <article class="jurusan-card">
-          <span class="jurusan-icon" aria-hidden="true">💻</span>
-          <h3 class="jurusan-title">Rekayasa Perangkat Lunak</h3>
-          <p class="jurusan-desc">Merancang dan membangun aplikasi web maupun mobile dari nol.</p>
-        </article>
-        <article class="jurusan-card">
-          <span class="jurusan-icon" aria-hidden="true">🌐</span>
-          <h3 class="jurusan-title">Teknik Komputer &amp; Jaringan</h3>
-          <p class="jurusan-desc">Instalasi, konfigurasi, dan keamanan jaringan komputer.</p>
-        </article>
-        <article class="jurusan-card">
-          <span class="jurusan-icon" aria-hidden="true">🎬</span>
-          <h3 class="jurusan-title">Multimedia</h3>
-          <p class="jurusan-desc">Mengasah kreativitas di bidang desain grafis, animasi, dan video.</p>
-        </article>
-        <article class="jurusan-card">
-          <span class="jurusan-icon" aria-hidden="true">🎨</span>
-          <h3 class="jurusan-title">Desain Komunikasi Visual</h3>
-          <p class="jurusan-desc">Mempelajari branding, UI/UX, dan komunikasi visual modern.</p>
-        </article>
-      </div>
-    </section>
+section[id], footer[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 
-    <section class="news" id="berita">
-      <div class="news-container">
-        <h2 class="news-heading">Berita Terbaru</h2>
-        <div class="news-grid" id="newsGrid">
-          <!-- Kartu berita dirender otomatis oleh script.js -->
-        </div>
-        <noscript><p class="news-noscript">Aktifkan JavaScript untuk menampilkan daftar berita terbaru.</p></noscript>
-      </div>
-    </section>
-  </main>
+/* -------------------- Header / Nav -------------------- */
 
-  <footer class="site-footer" id="kontak">
-    <div class="skyline" id="skyline" aria-hidden="true"></div>
-    <div class="footer-bottom">
-      <p class="footer-contact">Jl. Pendidikan Raya No. 1, Jakarta &nbsp;•&nbsp; [email protected] &nbsp;•&nbsp; (021) 123-4567</p>
-      <p class="footer-copy">&copy; <span id="year"></span> SMK Negeri Nusantara. Semua hak dilindungi.</p>
-    </div>
-  </footer>
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--primary);
+  transition: box-shadow .25s ease, background-color .25s ease;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.site-header.scrolled {
+  background: var(--primary-dark);
+  box-shadow: 0 8px 20px -10px rgba(20, 24, 60, 0.45);
+}
+
+.header-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--header-h);
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #fff;
+  letter-spacing: 0.2px;
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 1.9rem;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  padding: 0.35rem 0.05rem;
+  font-size: 0.94rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color .2s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: #fff;
+}
+
+.nav-link.active {
+  color: #fff;
+  font-weight: 600;
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* -------------------- Hero -------------------- */
+
+.hero {
+  position: relative;
+  min-height: 58vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, #4c5fbf 0%, #33469e 45%, #212a68 100%);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+  opacity: 0.7;
+}
+
+.hero-title-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  background: rgba(9, 13, 36, 0.45);
+  backdrop-filter: blur(3px);
+  padding: 1.2rem 2.25rem;
+  border-radius: 8px;
+}
+
+.hero-title {
+  margin: 0;
+  text-align: center;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 4.4vw, 2.5rem);
+  line-height: 1.3;
+}
+
+/* -------------------- Section shared -------------------- */
+
+.section-eyebrow {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 0.6rem;
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+  color: var(--ink);
+  margin: 0 0 2rem;
+}
+
+.section-heading--center { text-align: center; margin: 0 auto 1.1rem; max-width: 640px; }
+
+/* -------------------- Profil -------------------- */
+
+.profil {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 3rem;
+  text-align: center;
+}
+
+.profil-text {
+  color: var(--ink-soft);
+  font-size: 1rem;
+}
+
+/* -------------------- Jurusan -------------------- */
+
+.jurusan {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+
+.jurusan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.jurusan-card {
+  background: #fff;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.4rem;
+  text-align: center;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.jurusan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.jurusan-icon {
+  display: inline-block;
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.jurusan-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.jurusan-desc {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* -------------------- Berita -------------------- */
+
+.news {
+  background: var(--bg-alt);
+  padding: 4rem 1.5rem;
+}
+
+.news-container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.news-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+  color: var(--ink);
+  margin: 0 0 1.75rem;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.news-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.3rem;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  background: #fff;
+}
+
+.news-card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.35;
+  margin: 0 0 0.55rem;
+  color: var(--ink);
+}
+
+.news-card-desc {
+  font-size: 0.87rem;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.news-noscript {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+/* -------------------- Footer -------------------- */
+
+.site-footer { background: var(--bg); }
+
+.skyline {
+  height: 46px;
+  background: #fff;
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  padding: 0 6px;
+  overflow: hidden;
+}
+
+.skyline span {
+  flex: 1 1 auto;
+  min-width: 8px;
+  max-width: 28px;
+  background: #dee1ef;
+  border-radius: 2px 2px 0 0;
+}
+
+.footer-bottom {
+  background: var(--primary-darker);
+  padding: 1.1rem 1.5rem;
+  text-align: center;
+}
+
+.footer-contact {
+  margin: 0 0 0.35rem;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-copy {
+  margin: 0;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* -------------------- Focus visibility -------------------- */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.jurusan-card:focus-visible,
+.news-card:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* -------------------- Responsive -------------------- */
+
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--primary-dark);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .25s ease;
+  }
+
+  .main-nav.open { max-height: 320px; }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 1.5rem 1rem;
+  }
+
+  .main-nav li { border-top: 1px solid rgba(255, 255, 255, 0.12); }
+  .main-nav li:first-child { border-top: none; }
+
+  .nav-link { display: block; padding: 0.85rem 0.1rem; }
+  .nav-link::after { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero-title-wrap { padding: 1rem 1.4rem; }
+}
+
+/* -------------------- Reduced motion -------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+}
